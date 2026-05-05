@@ -5,6 +5,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { store } from "./redux/store.jsx";
+import { ThemeProvider } from "./context/ThemeContext.jsx";
 import Home from "./pages/Home.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import AddMeal from "./pages/AddMeal.jsx";
@@ -14,6 +15,7 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <Provider store={store}>
+    <ThemeProvider>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
@@ -28,6 +30,7 @@ const App = () => (
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
+    </ThemeProvider>
   </Provider>
 );
 
