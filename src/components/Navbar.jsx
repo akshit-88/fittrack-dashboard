@@ -6,6 +6,7 @@ const links = [
   { to: "/", label: "Home", icon: Home },
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { to: "/add", label: "Add Meal", icon: PlusCircle },
+  { to: "/todos", label: "Todos", icon: PlusCircle },
 ];
 
 const Navbar = () => {

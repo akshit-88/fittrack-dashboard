@@ -31,6 +31,7 @@ const App = () => (
             <Route path="/todos" element={<TodoApp />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          </TodoProvider>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
