@@ -1,5 +1,6 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Flame, LayoutDashboard, PlusCircle, Home } from "lucide-react";
+import { Flame, LayoutDashboard, PlusCircle, Home, Moon, Sun } from "lucide-react";
+import { useTheme } from "@/context/ThemeContext.jsx";
 
 const links = [
   { to: "/", label: "Home", icon: Home },
@@ -9,6 +10,7 @@ const links = [
 
 const Navbar = () => {
   const { pathname } = useLocation();
+  const { theme, toggleTheme } = useTheme();
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/80 backdrop-blur-lg">
       <div className="container flex h-16 items-center justify-between">
@@ -36,6 +38,13 @@ const Navbar = () => {
               <span className="hidden sm:inline">{label}</span>
             </NavLink>
           ))}
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="ml-1 flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+          >
+            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </button>
         </nav>
       </div>
     </header>
