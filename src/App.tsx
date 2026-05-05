@@ -6,9 +6,11 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { store } from "./redux/store.jsx";
 import { ThemeProvider } from "./context/ThemeContext.jsx";
+import { TodoProvider } from "./context/TodoContext.jsx";
 import Home from "./pages/Home.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import AddMeal from "./pages/AddMeal.jsx";
+import TodoApp from "./pages/TodoApp.jsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -21,12 +23,15 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <TodoProvider>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/add" element={<AddMeal />} />
+            <Route path="/todos" element={<TodoApp />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          </TodoProvider>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
