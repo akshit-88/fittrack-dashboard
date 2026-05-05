@@ -11,30 +11,30 @@ import Home from "./pages/Home.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import AddMeal from "./pages/AddMeal.jsx";
 import TodoApp from "./pages/TodoApp.jsx";
-import NotFound from "./pages/NotFound.tsx";
+import NotFound from "./pages/NotFound.jsx";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <Provider store={store}>
     <ThemeProvider>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <TodoProvider>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/add" element={<AddMeal />} />
-            <Route path="/todos" element={<TodoApp />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          </TodoProvider>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <TodoProvider>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/add" element={<AddMeal />} />
+                <Route path="/todos" element={<TodoApp />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </TodoProvider>
+          </BrowserRouter>
+        </TooltipProvider>
+      </QueryClientProvider>
     </ThemeProvider>
   </Provider>
 );
